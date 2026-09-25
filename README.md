@@ -106,6 +106,8 @@ The output is a file called `pcd_raycloud_mesh.ply` (imported point cloud + *_me
 
 <img src="./img/terrain_mesh_example.png" alt="" width="400"/>
 
+When working with large point clouds, it is worth it to use raydecimate to make the point cloud smaller before using rayextract terrain. You can continue with rayextract trees with the original raycloud and the decimated terrain file. The decimation of the terrain shouldn't make any difference in the results.
+
 ### *rayextract trees*: Extract individual trees and build QSMs from point cloud
 
 How it works: the tree extraction algorithm takes as input (1) our original point cloud and (2) the extracted terrain mesh from the previous step. The terrain mesh will be used as seed points to simultaneously build a shortest path graph through all the tree points, using some heuristics to guide the connectivity. Hence, it combines tree instance segmentation, leaf-wood segmentation and cylinder skeleton fitting (i.e., QSM). For more information see [Devereux et al (2026)](https://www.sciencedirect.com/science/article/pii/S0034425725005668?via%3Dihub).
